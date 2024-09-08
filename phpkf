@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+define('PROJE_DIZIN', getcwd().'/');
+
+$ayar_dosya = file_exists(PROJE_DIZIN.'phpkf.ini') ? PROJE_DIZIN.'phpkf.ini' : __DIR__.'phpkf.ini';
+
+$_ayarlar = parse_ini_file($ayar_dosya);
+
+foreach ([__DIR__.'/vendor/autoload.php',__DIR__.'yukle.php'] as $dosya) 
+{
+  if(file_exists($dosya)) require $dosya;
+}
+
+$komutlar = new MehmetAliDurusoy\phpKF\Konsol\Komutlar();
+
+$parametreler = ['ayarlar' => $_ayarlar,'ayar_dosya' => $ayar_dosya,...array_slice($argv,1)];
+
+$komut = isset($parametreler[0]) ? $parametreler[0] : 'tumu';
+
+if(method_exists($komutlar, $komut))
+{
+ echo call_user_func_array([$komutlar,$komut], [$parametreler]);
+}

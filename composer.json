@@ -1,0 +1,41 @@
+{
+  "name": "mehmetalidurusoy/phpkf-konsol",
+  "description": "phpKF için Konsol Uygulaması",
+  "keywords": ["phpkf","konsol","library"],
+  "license": "MIT",
+  "type": "library",
+  "homepage": "https://oceanwebturk.com",
+  "archive":{
+   "name": "mehmetalidurusoy-phpkf-konsol"
+  },
+  "support":{
+   "source": "https://github.com/oceanwebturk/framework",
+   "issues": "https://github.com/oceanwebturk/framework/issues"
+  },
+  "authors": [
+    {
+      "name": "Mehmet Ali Durusoy",
+      "email": "mehmetali@oceanwebturk.com",
+      "homepage": "https://oceanwebturk.com",
+      "role": "Developer"
+    }
+  ],
+  "config":{
+   "optimize-autoloader": true,
+   "preferred-install": "dist",
+   "sort-packages": true,
+   "classmap-authoritative": true
+  },
+  "require":{
+   "php": ">=7.4",
+   "ext-zip": "*"
+  },
+  "autoload":{
+    "psr-4":{
+     "MehmetAliDurusoy\\phpKF\\Konsol\\": "./src/"
+    }
+  },
+  "bin": ["./phpkf"],
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
